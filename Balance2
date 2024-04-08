@@ -1,0 +1,37 @@
+# Función para solicitar las masas iniciales al usuario
+def solicitar_masas_iniciales(num_masas):
+    masas_iniciales = []
+    for i in range(num_masas):
+        masa = float(input(f"Ingrese la masa inicial {i+1} del sistema (en kg, litros, etc.): "))
+        masas_iniciales.append(masa)
+    return masas_iniciales
+
+# Función para realizar el balance de masa
+def balance_masa(masas_iniciales, cambio_masa):
+    masa_inicial_total = sum(masas_iniciales)
+    masa_final = masa_inicial_total + cambio_masa
+    return masa_final
+
+# Función principal
+def main():
+    # Solicitar al usuario el número de masas iniciales
+    num_masas = int(input("Ingrese el número de masas iniciales: "))
+    
+    # Solicitar las masas iniciales al usuario
+    masas_iniciales = solicitar_masas_iniciales(num_masas)
+    
+    # Solicitar al usuario el cambio de masa
+    cambio_masa = float(input("Ingrese el cambio de masa (positivo si hay aumento, negativo si hay disminución): "))
+    
+    # Realizar el balance de masa en conjunto
+    masa_final = balance_masa(masas_iniciales, cambio_masa)
+    
+    # Mostrar resultado
+    print("\nBalance de masa:")
+    print("Masas iniciales:", masas_iniciales, "kg")
+    print("Cambio de masa:", cambio_masa, "kg")
+    print("Masa final:", masa_final, "kg")
+
+# Ejecutar la función principal
+if __name__ == "__main__":
+    main()
