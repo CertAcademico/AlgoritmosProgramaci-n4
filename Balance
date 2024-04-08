@@ -1,0 +1,50 @@
+# Función para realizar el balance de masa
+
+def balance_masa(masas_iniciales, cambios_masa):
+
+    # Calcula la masa inicial total
+    masa_inicial_total = sum(masas_iniciales)
+
+    # Calcula la masa final
+    masa_final = masa_inicial_total + sum(cambios_masa)
+
+    # Retorna la masa final
+    return masa_final
+
+# Solicitud masas iniciales
+num_masas = int(input("Ingrese el número de masas iniciales: "))
+
+# Cantidad masa inicial
+masas_iniciales = []
+
+# Solicitar al usuario ingresar las masas iniciales
+for i in range(num_masas):
+    masa = float(input(f"Ingrese la masa inicial {i+1} del sistema (en kg): "))
+    masas_iniciales.append(masa)
+
+# Solicitar al usuario el número de cambios de masa
+num_cambios = int(input("Ingrese el número de cambios de masa: "))
+
+# Lista para almacenar los cambios de masa
+cambios_masa = []
+
+# Solicitar al usuario ingresar los cambios de masa
+for i in range(num_cambios):
+    cambio = float(input(f"Ingrese el cambio de masa {i+1} (positivo si hay aumento, negativo si hay disminución): "))
+    cambios_masa.append(cambio)
+
+# Realizar el balance de masa en conjunto
+masa_final = balance_masa(masas_iniciales, cambios_masa)
+
+# Bases del resultado
+print("\nBalance de masa:")
+print("Masas iniciales:", masas_iniciales, "kg")
+print("Cambios de masa:", cambios_masa, "kg")
+print("Masa final:", masa_final, "kg")
+
+
+# Resultado
+print("\nBalance de masa:")
+print("Masas iniciales:", masas_iniciales)
+print("Cambios de masa:", cambios_masa)
+print("Masa final:", masa_final)
