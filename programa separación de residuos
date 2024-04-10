@@ -1,0 +1,52 @@
+# definimos la variable clasificar_residuo, esta va a tomar un parametro que se llamara tipo_basura, el cual nos va a representar el tipo de residuo que vamos a clasificar
+#despues colocamos un string(str), esto nos va a indicar que se espera que se coloque una cadena de texto como respuesta.
+
+def clasificar_residuo(tipo_basura: str) -> str:
+
+#Ahora utilizamos un if/elif y else, cada una de estas declaracion va a verificar si tipo_basura coincide con los tipos de basura asignados en cada uno y si coinciden con dicho color asignado
+#Utilizamos el metodo .lower para convertir una cadena de texto en minusculas, este metodo nos va a ayudar para que el usuario pueda escribir el residuo que desea clasificar de cualquier forma,
+#y el lower convertira la cadena de texto en letras minusculas
+#Colocamos la variable color que se utiliza para almacenar el color de la cadena determinado por la funcion clasificacion_residuo
+
+    if tipo_basura.lower()== "botella" or tipo_basura.lower()=="plastico" or tipo_basura.lower()=="lata" or tipo_basura.lower()=="vidrio" or tipo_basura.lower()=="metal" or tipo_basura.lower()=="papel" or tipo_basura.lower()=="carton":
+        color ="BLANCA"
+    elif tipo_basura.lower()== "comida" or tipo_basura.lower()=="desechos agricolas" or tipo_basura.lower()=="fruta" or tipo_basura.lower()=="cereal" or tipo_basura.lower()=="semilla" or tipo_basura.lower()=="cascara de fruta" or tipo_basura.lower()=="abono" or tipo_basura.lower()=="fertilizante" or tipo_basura.lower()=="mangueras":
+        color = "VERDE"
+    elif tipo_basura.lower()== "papel higienico" or tipo_basura.lower()=="servilleta" or tipo_basura.lower()=="papel metalico" or tipo_basura.lower()=="papel contaminado" or tipo_basura.lower()=="carton contaminado":
+        color ="NEGRA"
+    elif tipo_basura.lower()== "guantes quirurgicos" or tipo_basura.lower()=="aguja" or tipo_basura.lower()=="jeringa" or tipo_basura.lower()=="gasa" or tipo_basura.lower()=="insecticida" or tipo_basura.lower()=="aceite" or tipo_basura.lower()=="toxico":
+        color ="ROJA"
+    else:
+        color= print("No se pudo determinar la clasificación del residuo, intente con otro termino.")
+
+#Se coloca Return para devolver dicho color como resultado de la funcion
+    return color
+
+# Definimos la funcion main que le da instrucciones iniciales al usuario
+# Imprime una bienvenida
+def main():
+    print("Bienvenido al programa de clasificación de residuos.")
+    print("ASPECTOS A TENER EN CUENTA:")
+    print("1. El residuo debera estar en singular")
+    print("2. Si el residuo se encuentra contaminado por algun alimento, escribir el residuo seguido de la palabra contaminado")
+
+# Al final del bucle, el programa pregunta nuevamente al usuario si desea clasificar otro residuo, permitiendo así continuar el bucle si la respuesta es "si", o terminarlo si la respuesta es diferente.
+    seguir= input("¿Desea clasificar un residuo?: ")
+    while seguir.lower() == "si":
+
+      tipo_basura = input("Nombre del residuo: ")
+
+      color_caneca = clasificar_residuo(tipo_basura)
+
+#Si se encontró una clasificación válida, imprime un mensaje informando al usuario sobre el color de la caneca donde debe depositar el residuo. Si no, imprime el mensaje de error.
+    #En esta parte del codigo f es remplazada por sus valores evaluando las expresiones dentro de las llaves {}
+      #!=: Operador de no igualdad. Lo utilizamos para evaluar si el valor de la izquierda del operador (color_caneca) es diferente del valor a la derecha del operador (la cadena "No se pudo determinar la clasificaciòn...")
+      if color_caneca != "No se pudo determinar la clasificación del residuo.":
+        print(f"El residuo debe ser depositado en la caneca de color: {color_caneca}")
+      else:
+        print(color_caneca)
+      seguir= input("¿Desea clasificar un residuo?")
+
+#Esta llamada de main es esencial para que el código ejecute la lógica definida dentro de main().
+
+main()
